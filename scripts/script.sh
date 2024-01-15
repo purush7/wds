@@ -11,7 +11,7 @@ n=$1
 
 # Generate n rows with user names and sample alert messages
 for ((i = 1; i <= n; i++)); do
-    echo "user$i,Order has been placed" >> ./alert_initiator/testdata/alerts.csv
+    echo "user$i,Order has been placed" >> ../alert_initiator/testdata/alerts.csv
 done
 
 echo "CSV file 'alerts.csv' created with $n rows."
