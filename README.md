@@ -59,6 +59,16 @@ This whole repo has 3 main services and redis
 	// }
     ```
     Uncomment the above snippet, the worker exists after reading 2 lines, we can recipocrate the situation of worker ending abruptly by making this change
+    - Redis
+        - To check the keys and queue info use the below commands to connect and see the info
+        ```
+        docker exec -it webhook_system-redis-1 /bin/bash 
+        select 2
+        keys *
+        lrange <queue_name> 0 -1   (sample queue-name->  rmq::queue::[queue_notifier]::rejected)
+        get <key>
+
+        ```
 
 #### APIS
 
