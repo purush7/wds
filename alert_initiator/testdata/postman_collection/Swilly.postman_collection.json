@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "6630c489-3601-4770-a3db-046759400670",
+		"name": "Swilly",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22087627"
+	},
+	"item": [
+		{
+			"name": "Save File",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.environment.set(\"filePath\", jsonData.data);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/purush/personal/poc/webhook_system/alert_initiator/testdata/alerts.csv"
+						},
+						{
+							"key": "count",
+							"value": "3",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3335/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3335",
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retry",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3335 /retry",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3335 ",
+					"path": [
+						"retry"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "webhook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"125\",\n    \"alertMessage\": \"Order has been placed\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3334/webhook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3334",
+					"path": [
+						"webhook"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

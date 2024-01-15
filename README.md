@@ -83,6 +83,7 @@ This whole repo has 3 main services and redis
             "alertMessage": "Order has been placed"
         }
     ```
+    - Postman Collection has been added to `testdata/postman_collection`
 
 #### Approach
 - PFA [approach.md](https://github.com/purush7/wds/blob/main/docs/approach.md)
