@@ -1,0 +1,17 @@
+version: '3'
+
+networks:
+    swillynetwork:
+      driver: bridge
+      name: swillynetwork
+      ipam:
+        config:
+          - subnet: 172.20.1.0/24
+
+services:
+  redis:
+    image: "redis:latest"
+    ports:
+      - "6379:6379"
+    networks:
+      - swillynetwork
