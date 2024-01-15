@@ -88,7 +88,7 @@ This whole repo has 3 main services and redis
 - PFA [approach.md](https://github.com/purush7/wds/blob/main/docs/approach.md)
 
 #### Design
-- PFA [design.png](https://github.com/purush7/wds/blob/main/docs/design.png)
+- PFA [design.jpg](https://github.com/purush7/wds/blob/main/docs/design.jpg)
 
 #### Improvements:
 
@@ -96,7 +96,9 @@ This whole repo has 3 main services and redis
 - [ ] Add conf
 - [ ] Remove info logs which are debug
 - [ ] Add Context down the function calls which helps in profiling
+- [ ] Improve `isFileOpen` function for all OS and the scenarios
 - [ ] Add Routers,Middlewares, recovering in controllers
 - [ ] Improve Directory Structure (As this is poc, didn't concentrated on this part)
 - [ ] Along with using db/persistent storage, incase of backpressure try to slow down the injested rate in batcher queue
 - [ ] Add more info like each service of alert_initator, worker etc
+- [ ] Add seek if there is any offset while reading file

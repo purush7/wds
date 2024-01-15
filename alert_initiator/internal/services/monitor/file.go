@@ -131,6 +131,7 @@ func isFileOpen(filePath string) bool {
 		return true // Assume file is open on error
 	}
 
-	// Check if the file is open
-	return flags&syscall.O_ACCMODE != syscall.O_WRONLY
+	// Check if the file is not open for writing
+	return flags&syscall.O_ACCMODE == syscall.O_RDONLY || flags&syscall.O_ACCMODE == 0
+
 }
