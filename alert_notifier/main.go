@@ -1,6 +1,7 @@
 package main
 
 import (
+	"alert_system/constants"
 	responsehandler "alert_system/response_handler"
 	"encoding/csv"
 	"encoding/json"
@@ -20,7 +21,7 @@ type webhookRequest struct {
 	AlertMessage string `json:"alertMessage"`
 }
 
-var limiter5RPS = tollbooth.NewLimiter(.5, &limiter.ExpirableOptions{DefaultExpirationTTL: 10 * time.Minute})
+var limiter5RPS = tollbooth.NewLimiter(constants.RatelimiterRPS, &limiter.ExpirableOptions{DefaultExpirationTTL: 10 * time.Minute})
 var timeString string = time.Now().Format("20060102150405.003059_")
 
 func webhookHandler(w http.ResponseWriter, r *http.Request) {

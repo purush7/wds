@@ -34,7 +34,8 @@ const (
 
 // Notifier
 const (
-	NOTIFIER_URL = "http://alert-notifier:3333/webhook"
+	NOTIFIER_URL string = "http://alert-notifier:3333/webhook"
+	RatelimiterRPS float64 = .5
 )
 
 // Redis keys
