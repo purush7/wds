@@ -14,7 +14,7 @@ For more context or problem statement refer: [problem_statement](https://github.
 
 ### About:
 
-This whole repo has 3 main services and redis
+This whole system has 3 main services and redis
 
 #### Alert Initiator:  
 
@@ -32,8 +32,17 @@ This whole repo has 3 main services and redis
 - This server has ratelimiter implemented. ***To configure the ratelimiter rps, change RatelimiterRPS in `constants/server.go`file*** 
 > Note: Currently the RPS is .5 which means 1 request per 2 seconds (which is too slow, this is present for testing all failcases ;) ) is accepted for the constraints (it's been added as ip ratelimiter so the constraints on ip and requested path). If it is changed to 5 then it means 5 request per second.
 
+#### Redis:
+
+- Redis is used as message queue, key-value database in this system
 
 ### Instructions:
+
+#### Prerequisites:
+
+- Make 
+- Go 
+- Docker 
 
 #### Deployment
 
