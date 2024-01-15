@@ -93,7 +93,6 @@ func MontiorDbService() {
 func getPayloadFromDb() {
 	//get from db
 	payloadBatch := model.GetBatchFromDb()
-	log.Println("payload ", payloadBatch)
 	err := redis.Set(constants.Publishing, constants.PublishingTrue, time.Second)
 	if err != nil {
 		log.Println("err while locking ", err)
@@ -139,7 +138,6 @@ func MontiorFileService() {
 
 	// Specify the folder to watch
 	folderPath := "/tmp"
-	log.Println("folderpath")
 	err = watcher.Add(folderPath)
 	if err != nil {
 		log.Fatal(err)

@@ -95,7 +95,6 @@ func RetrieveMapFromRedis(hashKey string) (map[string]interface{}, error) {
 		return nil, err
 	}
 
-	log.Println("results ", result)
 	// Convert the result to a map[string]string
 	retrievedMap := make(map[string]interface{})
 	for key, value := range result {

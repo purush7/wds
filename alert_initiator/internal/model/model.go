@@ -33,7 +33,6 @@ func GetBatchFromDb() []entities.BatcherPayload {
 	if err == redis.Nil {
 		return nil
 	}
-	log.Println("dbstore1: ", DbStore)
 	for k := range DbStore {
 		if index == constants.BatchLimit {
 			break

@@ -97,7 +97,7 @@ func ProcessBatcherTopic(payload []byte) error {
 
 		// Handle other errors
 		if err != nil {
-			log.Println("err1: ", err)
+			log.Println("error while reading file: ", err)
 			return err
 		}
 

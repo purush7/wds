@@ -21,12 +21,12 @@ type webhookRequest struct {
 	AlertMessage string `json:"alertMessage"`
 }
 
-var limiter5RPS = tollbooth.NewLimiter(constants.RatelimiterRPS, &limiter.ExpirableOptions{DefaultExpirationTTL: 10 * time.Minute})
+var rateLimiter = tollbooth.NewLimiter(constants.RatelimiterRPS, &limiter.ExpirableOptions{DefaultExpirationTTL: 10 * time.Minute})
 var timeString string = time.Now().Format("20060102150405.003059_")
 
 func webhookHandler(w http.ResponseWriter, r *http.Request) {
 
-	limitError := tollbooth.LimitByKeys(limiter5RPS, []string{strings.Split(r.RemoteAddr, ":")[0], r.URL.Path})
+	limitError := tollbooth.LimitByKeys(rateLimiter, []string{strings.Split(r.RemoteAddr, ":")[0], r.URL.Path})
 	if limitError != nil {
 		responsehandler.CustomError(w, http.StatusTooManyRequests, http.StatusText(http.StatusTooManyRequests))
 		return
