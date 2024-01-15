@@ -1,4 +1,4 @@
-# Scalable Webhook Delivery System:
+# Webhook Delivery System:
 
 ### Objective:
 To develop an efficient, reliable system capable of:
@@ -8,8 +8,9 @@ To develop an efficient, reliable system capable of:
 - Processing each file quickly and accurately to extract user IDs.
 - Handling the high volume of webhook calls while respecting any rate limits.
 - Ensuring data integrity and delivery confirmation for each alert message.
+- Horizontal Scalable
 
-For more context or problem statement refer: problem_statement.md
+For more context or problem statement refer: [problem_statement](https://github.com/purush7/wds/blob/main/docs/problem_statement.md)
 
 ### About:
 
@@ -50,7 +51,7 @@ This whole repo has 3 main services and redis
 - The test scripts will be present under `scripts`
     - `ratelimiter.sh` -> continues hits 10 times(you can change it) the alert_notifier for testing the ratelimiter
     - `script.sh` -> takes the number of rows as an argument and generates
-    - After generating the file, copy it to `~/.tmp` in your system or you can use `/upload` API (More Info about this will be explained under APIS section) and check the contents of file under `~/.tmp/output`
+    - After generating the file, copy it to `~/.tmp` in your system or you can use `/upload` API (More Info about this in [APIS](https://github.com/purush7/wds/blob/main/README.md#apis)) and check the contents of file under `~/.tmp/output`
     - To test data integrity, what happens if worker fails you can test it by making edits as mentioned in the code snippet comments end of  `alert_intiator/internal/services/worker/worker.go` func `ProcessBatcherTopic` 
     ```
     // test for data integrity as we shouldn't miss any user nor alerts should be sent to the user multiple times
@@ -83,7 +84,11 @@ This whole repo has 3 main services and redis
         }
     ```
 
-**For approach and design please check: Approach Doc and design.png**
+#### Approach
+- PFA [approach.md](https://github.com/purush7/wds/blob/main/docs/approach.md)
+
+#### Design
+- PFA [design.png](https://github.com/purush7/wds/blob/main/docs/design.png)
 
 #### Improvements:
 
