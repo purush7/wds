@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"alert_system/alert_initiator/internal/queue"
+	"alert_system/alert_initiator/internal_ext/queue"
 	"alert_system/constants"
 	responsehandler "alert_system/response_handler"
 	"alert_system/util"

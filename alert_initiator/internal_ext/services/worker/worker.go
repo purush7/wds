@@ -1,10 +1,10 @@
 package worker
 
 import (
-	"alert_system/alert_initiator/internal/client"
-	"alert_system/alert_initiator/internal/entities"
-	"alert_system/alert_initiator/internal/model"
-	"alert_system/alert_initiator/internal/services/producer"
+	"alert_system/alert_initiator/internal_ext/client"
+	"alert_system/alert_initiator/internal_ext/entities"
+	"alert_system/alert_initiator/internal_ext/model"
+	"alert_system/alert_initiator/internal_ext/services/producer"
 	"alert_system/constants"
 	"alert_system/infra/redis"
 	"alert_system/util"

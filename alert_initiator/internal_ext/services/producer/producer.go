@@ -1,7 +1,7 @@
 package producer
 
 import (
-	"alert_system/alert_initiator/internal/queue"
+	"alert_system/alert_initiator/internal_ext/queue"
 	"encoding/json"
 	"log"
 )

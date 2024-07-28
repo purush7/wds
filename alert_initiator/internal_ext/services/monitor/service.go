@@ -1,10 +1,10 @@
 package monitor
 
 import (
-	"alert_system/alert_initiator/internal/entities"
-	"alert_system/alert_initiator/internal/model"
-	"alert_system/alert_initiator/internal/queue"
-	"alert_system/alert_initiator/internal/services/producer"
+	"alert_system/alert_initiator/internal_ext/entities"
+	"alert_system/alert_initiator/internal_ext/model"
+	"alert_system/alert_initiator/internal_ext/queue"
+	"alert_system/alert_initiator/internal_ext/services/producer"
 	"alert_system/constants"
 	"alert_system/infra/redis"
 	"log"

@@ -61,7 +61,7 @@ This whole system has 3 main services and redis
     - `ratelimiter.sh` -> continues hits 10 times(you can change it) the alert_notifier for testing the ratelimiter
     - `script.sh` -> takes the number of rows as an argument and generates
     - After generating the file, copy it to `~/.tmp` in your system or you can use `/upload` API (More Info about this in [APIS](https://github.com/purush7/wds/blob/main/README.md#apis)) and check the contents of file under `~/.tmp/output`
-    - To test data integrity, what happens if worker fails you can test it by making edits as mentioned in the code snippet comments end of  `alert_intiator/internal/services/worker/worker.go` func `ProcessBatcherTopic` 
+    - To test data integrity, what happens if worker fails you can test it by making edits as mentioned in the code snippet comments end of  `alert_intiator/internal_ext/services/worker/worker.go` func `ProcessBatcherTopic` 
     ```
     // test for data integrity as we shouldn't miss any user nor alerts should be sent to the user multiple times
 	// if offset  == 2{

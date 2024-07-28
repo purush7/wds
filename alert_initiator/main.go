@@ -1,10 +1,10 @@
 package main
 
 import (
-	"alert_system/alert_initiator/internal/handler"
-	"alert_system/alert_initiator/internal/queue"
-	"alert_system/alert_initiator/internal/services/consumer"
-	"alert_system/alert_initiator/internal/services/monitor"
+	"alert_system/alert_initiator/internal_ext/handler"
+	"alert_system/alert_initiator/internal_ext/queue"
+	"alert_system/alert_initiator/internal_ext/services/consumer"
+	"alert_system/alert_initiator/internal_ext/services/monitor"
 	"alert_system/constants"
 	"flag"
 	"fmt"

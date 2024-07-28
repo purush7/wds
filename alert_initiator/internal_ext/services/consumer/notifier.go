@@ -1,7 +1,7 @@
 package consumer
 
 import (
-	"alert_system/alert_initiator/internal/services/worker"
+	"alert_system/alert_initiator/internal_ext/services/worker"
 	"fmt"
 	"log"
 	"time"
@@ -9,15 +9,15 @@ import (
 	"github.com/adjust/rmq/v5"
 )
 
-type batcherConsumer struct {
+type notifierConsumer struct {
 	name      string
 	queueName string
 	count     int
 	before    time.Time
 }
 
-func Batcher(tag int, queueName string) *batcherConsumer {
-	return &batcherConsumer{
+func Notifier(tag int, queueName string) *notifierConsumer {
+	return &notifierConsumer{
 		name:      fmt.Sprintf("consumer_%d", tag),
 		queueName: queueName,
 		count:     0,
@@ -25,11 +25,11 @@ func Batcher(tag int, queueName string) *batcherConsumer {
 	}
 }
 
-func (consumer *batcherConsumer) Consume(delivery rmq.Delivery) {
+func (consumer *notifierConsumer) Consume(delivery rmq.Delivery) {
 	payload := delivery.Payload()
 	log.Printf("start consumer for queue: %v with payload: %s", consumer.queueName, payload)
 	// handler
-	handlerErr := worker.ProcessBatcherTopic([]byte(payload))
+	handlerErr := worker.ProcessNotifierTopic([]byte(payload))
 	if handlerErr != nil {
 		if err := delivery.Reject(); err != nil {
 			log.Printf("failed to reject %s: %s which got handle error: %s", payload, err, handlerErr)

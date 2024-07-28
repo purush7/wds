@@ -1,7 +1,7 @@
 package model
 
 import (
-	"alert_system/alert_initiator/internal/entities"
+	"alert_system/alert_initiator/internal_ext/entities"
 	"alert_system/constants"
 	"alert_system/infra/redis"
 	"log"
